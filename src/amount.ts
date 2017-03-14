@@ -12,8 +12,8 @@ export interface Amount<T extends Metric> {
 }
 
 interface IncrementOptions<T> {
-  exponential: boolean;
-  extra: any;
+  exponential?: boolean;
+  extra?: any;
 }
 
 type DecrementOptions<T> = IncrementOptions<T>;
