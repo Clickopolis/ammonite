@@ -1,11 +1,11 @@
-# ammonite
+# ammonite ![ammonite](media/ammonite.png)
 
 Ammonite is a small library made for incremental games.
 
 ## Features
-- Small (under ~1Kb)
-- Immutable (uses immutable.js)
-- Functional&mdash;focus on pure functions
+- **Small** (under ~1Kb)
+- **Immutable** leverages Immutable.js constructs
+- **Functional** focuses on pure functions, helps ensure fewer side-effects
 
 ## Installation
 
