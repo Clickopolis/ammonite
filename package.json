@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/Clickopolis/ammonite/issues"
   },
-  "homepage": "https://github.com/Clickopolis/ammonite#readme"
+  "homepage": "https://github.com/Clickopolis/ammonite#readme",
+  "dependencies": {
+    "immutable": "^3.8.1"
+  }
 }
