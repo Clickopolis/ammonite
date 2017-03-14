@@ -41,12 +41,20 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.last();
   }
 
+  current():T | undefined {
+    return this.last();
+  }
+
   push(n: T):void {
     this.load.push(n);
   }
 
   includes(v: T):boolean {
     return this.load.includes(v);
+  }
+
+  sortBy(prop: string) {
+    this.load.sortBy(metric => metric[prop]);
   }
 
   incremenet(inc: number, opts: IncrementOptions<T>) {
