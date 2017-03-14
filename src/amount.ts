@@ -11,15 +11,6 @@ export interface Amount<T extends Metric> {
   treatAsInteger: boolean;
 }
 
-
-export const increment = (original: number, inc: number) => {
-  return original + inc;
-};
-
-export const incrementByPower = (original: number, exponent: number = 1.07) => {
-  return Math.pow(original, exponent);
-};
-
 interface IncrementOptions<T> {
   exponential: boolean;
   extra: any;
@@ -62,7 +53,7 @@ export class Amount<T extends Metric> implements Amount<T> {
                       Math.pow(this.load.last().total, inc) :
                       this.load.last().total + inc;
     const newEntry:Metric = {
-      total: newAmount,
+      total: this.treatAsInteger ? Math.round(newAmount) : newAmount,
       time: Date.now(),
     };
     this.load.push(<T>newEntry);
@@ -73,7 +64,7 @@ export class Amount<T extends Metric> implements Amount<T> {
                       Math.pow(this.load.last().total, inc) :
                       this.load.last().total - inc;
     const newEntry:Metric = {
-      total: newAmount,
+      total: this.treatAsInteger ? Math.round(newAmount) : newAmount,
       time: Date.now(),
     };
     this.load.push(<T>newEntry);
