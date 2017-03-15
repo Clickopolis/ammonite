@@ -1,5 +1,7 @@
 # ammonite ![ammonite](media/ammonite.png)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Clickopolis/ammonite.svg)](https://greenkeeper.io/)
+
 Ammonite is a small library made for incremental games.
 
 ## Features
