@@ -1,6 +1,6 @@
 {
   "name": "ammonite",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "a functional library geared towards incremental games",
   "main": "index.js",
   "scripts": {
