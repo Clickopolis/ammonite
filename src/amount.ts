@@ -1,4 +1,4 @@
-import { List } from 'immutable';
+import { List, Iterable } from 'immutable';
 
 export interface Metric {
   total: number;
@@ -47,8 +47,8 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.includes(v);
   }
 
-  sortBy(prop: string) {
-    return this.load.sortBy(metric => metric[prop]);
+  sortBy(prop: string):Iterable<number, T> {
+    return this.load.sortBy((metric:any) => metric[prop]);
   }
 
   incremenet(inc: number, opts: IncrementOptions<T>) {
