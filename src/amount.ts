@@ -37,6 +37,10 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.last();
   }
 
+  getSize():number {
+    return this.load.size;
+  }
+
   push(n: T):List<T> {
     return this.load.push(n);
   }
@@ -49,7 +53,9 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.sortBy((metric:any) => metric[prop]);
   }
 
-  increment(inc: number, opts?: NewEntryOptions<T>):List<T> {
+  increment(inc: number, opts: NewEntryOptions<T> = {
+    exponential: false,
+  }):List<T> {
     const newAmount = opts.exponential ?
                       Math.pow(this.load.last().total, inc) :
                       this.load.last().total + inc;
@@ -60,7 +66,9 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.push(<T>newEntry);
   }
 
-  decrement(inc: number, opts?: NewEntryOptions<T>):List<T> {
+  decrement(inc: number, opts: NewEntryOptions<T> = {
+    exponential: false,
+  }):List<T> {
     const newAmount = opts.exponential ?
                       Math.pow(this.load.last().total, inc) :
                       this.load.last().total - inc;

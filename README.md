@@ -22,22 +22,43 @@ Ammonite is a small library made for incremental games.
 
 Amount is a class that Ammonite uses to control metrics. Its constructor takes a `List` of an item that has the same subset of properties as `Metric` (see [Metric](#Metric) for more information).
 
-| Property       | Type                   |
-|----------------|------------------------|
-| `load`           | `List<T extends Metric>` |
-| `treatAsInteger` | boolean                |
+| Property       | Type                   | Optional? | Default |
+|----------------|------------------------|------------|----------|
+| `load`           | `List<T extends Metric>` | No |      |
+| `treatAsInteger` | boolean                | Yes | false |
 
 - `load` is the `List`
 - `treatAsInteger` will round the value after each evaluation
+
+#### Methods
+#### `Amount(load, treatAsInteger)`
+
+This is the constructor function for the Amount class. Remember that it requires an interface which extends from Metric.
+
+**Example**
+
+```Typescript
+interface Dogs {
+  total: number;
+  averageWoof: number;
+  averageBark: number;
+}
+let dogs = new Amount(List<Dogs>(), true);
+```
+
+#### `getAll()`
+
+Returns all items in the load.
+
 
 ### `Metric`
 
 Metric is an interface that is F-bounded to `Amount`.
 
-| Property | Type   | Optional? |
-|----------|--------|------------|
-| `total`    | number | No |
-| `time`     | number | Yes |
+| Property | Type   | Optional? | Default |
+|----------|--------|------------|------|
+| `total`    | number | No |   |
+| `time`     | number | Yes |    |
 
 All generic types of `Amount` must extend from `Metric`. This is easy to do with `extends`.
 
@@ -50,6 +71,10 @@ interface Click extends Metric {
 
 
 ## FAQ
+
+### WTF is an Ammonite?
+It's [this](https://www.google.com/search?q=ammonite&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjU8vfRgODSAhUE9WMKHQyXDDwQ_AUICCgB&biw=892&bih=935).
+
 
 
 Ammonite made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
