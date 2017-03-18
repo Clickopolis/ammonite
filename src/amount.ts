@@ -3,6 +3,7 @@ import { List, Iterable } from 'immutable';
 export interface Metric {
   total: number;
   time?: number;
+  [prop: string]: any;
 }
 
 export interface Amount<T extends Metric> {
@@ -50,7 +51,7 @@ export class Amount<T extends Metric> implements Amount<T> {
   }
 
   sort<C>(prop: string):List<T> {
-    return <List<T>>this.load.sort((a, b) => {
+    return <List<T>>this.load.sort((a:T, b:T):number => {
       if (<C>a[prop] < <C>b[prop]) { return -1; }
       if (<C>a[prop] > <C>b[prop]) { return 1; }
       if (<C>a[prop] === <C>b[prop]) { return 0; }

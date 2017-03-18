@@ -56,7 +56,7 @@ describe('Amount class', () => {
       featherWeight: 67
     };
     amount.load = amount.push(newChicken);
-    amount.load = amount.sort('total');
+    amount.load = amount.sort<number>('total');
     expect(amount.first()).toEqual(newChicken);
   });
 
