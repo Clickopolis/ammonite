@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "prepublish": "npm run build",
-    "test": "jest --coverage"
+    "test:jest": "node node_modules/jest/bin/jest",
+    "test": "npm run test:jest --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,8 @@
     "webpack": "^2.2.1"
   },
   "devDependencies": {
+    "coveralls": "^2.12.0",
+    "nyc": "^10.1.2",
     "typescript": "^2.2.1"
   },
   "jest": {
