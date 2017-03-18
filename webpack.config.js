@@ -18,11 +18,12 @@ module.exports = {
       {
         test: /(\.tsx|\.ts)$/,
         loader: 'awesome-typescript-loader',
+        exclude: './src/__tests__'
       }
     ]
   },
   resolve: {
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts'],
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin()
