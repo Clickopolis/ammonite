@@ -49,8 +49,12 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.includes(v);
   }
 
-  sortBy(prop: string):Iterable<number, T> {
-    return this.load.sortBy((metric:any) => metric[prop]);
+  sort<C>(prop: string):List<T> {
+    return <List<T>>this.load.sort((a, b) => {
+      if (<C>a[prop] < <C>b[prop]) { return -1; }
+      if (<C>a[prop] > <C>b[prop]) { return 1; }
+      if (<C>a[prop] === <C>b[prop]) { return 0; }
+    });
   }
 
   increment(inc: number, opts: NewEntryOptions<T> = {

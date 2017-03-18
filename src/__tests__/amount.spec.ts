@@ -43,9 +43,21 @@ describe('Amount class', () => {
   });
 
   it('#size', () => {
-    amount.load = amount.push(answer);
-    amount.load = amount.push(answer);
-    expect(amount.getSize()).toBe(2);
+    const subject = new Amount(List<Chicken>(), true);
+    subject.load = amount.push(answer);
+    subject.load = amount.push(answer);
+    expect(amount.getSize()).toBe(3);
+  });
+
+  it('#sort', () => {
+    const newChicken:Chicken = {
+      total: -45,
+      time: Date.now(),
+      featherWeight: 67
+    };
+    amount.load = amount.push(newChicken);
+    amount.load = amount.sort('total');
+    expect(amount.first()).toEqual(newChicken);
   });
 
   it('#includes', () => {
