@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 
-interface Metric {
+export interface Metric {
   total: number;
   time: number;
 }
@@ -10,12 +10,12 @@ export interface Amount<T extends Metric> {
   treatAsInteger: boolean;
 }
 
-interface IncrementOptions<T> {
+export interface IncrementOptions<T> {
   exponential?: boolean;
   extra?: any;
 }
 
-type DecrementOptions<T> = IncrementOptions<T>;
+export type DecrementOptions<T> = IncrementOptions<T>;
 
 export class Amount<T extends Metric> implements Amount<T> {
   constructor(load: List<T>, treatAsInteger: boolean = false) {
