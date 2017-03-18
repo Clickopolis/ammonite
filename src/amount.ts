@@ -2,20 +2,18 @@ import { List, Iterable } from 'immutable';
 
 export interface Metric {
   total: number;
-  time: number;
+  time?: number;
 }
 
 export interface Amount<T extends Metric> {
   load: List<T>;
-  treatAsInteger: boolean;
+  treatAsInteger?: boolean;
 }
 
-export interface IncrementOptions<T> {
+export interface NewEntryOptions<T> {
   exponential?: boolean;
   extra?: any;
 }
-
-export type DecrementOptions<T> = IncrementOptions<T>;
 
 export class Amount<T extends Metric> implements Amount<T> {
   constructor(load: List<T>, treatAsInteger: boolean = false) {
@@ -51,7 +49,7 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.sortBy((metric:any) => metric[prop]);
   }
 
-  increment(inc: number, opts: IncrementOptions<T>):List<T> {
+  increment(inc: number, opts?: NewEntryOptions<T>):List<T> {
     const newAmount = opts.exponential ?
                       Math.pow(this.load.last().total, inc) :
                       this.load.last().total + inc;
@@ -62,7 +60,7 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.push(<T>newEntry);
   }
 
-  decrement(inc: number, opts: DecrementOptions<T>):List<T> {
+  decrement(inc: number, opts?: NewEntryOptions<T>):List<T> {
     const newAmount = opts.exponential ?
                       Math.pow(this.load.last().total, inc) :
                       this.load.last().total - inc;

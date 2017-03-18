@@ -8,7 +8,7 @@
 Ammonite is a small library made for incremental games.
 
 ## Features
-- **Small** (under ~1Kb)
+- **Small** (under ~3Kb)
 - **Immutable** leverages Immutable.js constructs
 - **Functional** focuses on pure functions, helps ensure fewer side-effects
 
@@ -24,25 +24,26 @@ Amount is a class that Ammonite uses to control metrics. Its constructor takes a
 
 | Property       | Type                   |
 |----------------|------------------------|
-| `load`           | List<T extends Metric> |
+| `load`           | `List<T extends Metric>` |
 | `treatAsInteger` | boolean                |
 
-- `load` is the list
+- `load` is the `List`
 - `treatAsInteger` will round the value after each evaluation
 
 ### `Metric`
 
 Metric is an interface that is F-bounded to `Amount`.
 
-| Property | Type   |
-|----------|--------|
-| `total`    | number |
-| `time`     | number |
+| Property | Type   | Optional? |
+|----------|--------|------------|
+| `total`    | number | No |
+| `time`     | number | Yes |
 
 All generic types of `Amount` must extend from `Metric`. This is easy to do with `extends`.
 
 ```Typescript
 interface Click extends Metric {
+    total: number;
     doubleClick?: boolean;
 }
 ```
