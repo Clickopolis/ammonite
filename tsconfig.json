@@ -2,13 +2,14 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "declaration": false,
-        "noImplicitAny": false,
+        "declaration": true,
+        "declarationDir": "./dist",
+        "noImplicitAny": true,
         "removeComments": true,
         "noLib": false,
         "jsx": "react",
         "experimentalDecorators": true,
-        "allowJs": true
+        "allowJs": false
     },
     "exclude": [
       "node_modules",
