@@ -6,3 +6,4 @@ tslint.json
 media
 src
 webpack.config.js
+__tests__

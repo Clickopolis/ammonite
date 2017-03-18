@@ -36,11 +36,11 @@ export class Amount<T extends Metric> implements Amount<T> {
   }
 
   current():T | undefined {
-    return this.last();
+    return this.load.last();
   }
 
-  push(n: T):void {
-    this.load.push(n);
+  push(n: T):List<T> {
+    return this.load.push(n);
   }
 
   includes(v: T):boolean {
@@ -51,7 +51,7 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.sortBy((metric:any) => metric[prop]);
   }
 
-  incremenet(inc: number, opts: IncrementOptions<T>) {
+  increment(inc: number, opts: IncrementOptions<T>):List<T> {
     const newAmount = opts.exponential ?
                       Math.pow(this.load.last().total, inc) :
                       this.load.last().total + inc;
@@ -59,10 +59,10 @@ export class Amount<T extends Metric> implements Amount<T> {
       total: this.treatAsInteger ? Math.round(newAmount) : newAmount,
       time: Date.now(),
     };
-    this.load.push(<T>newEntry);
+    return this.push(<T>newEntry);
   }
 
-  decrement(inc: number, opts: DecrementOptions<T>) {
+  decrement(inc: number, opts: DecrementOptions<T>):List<T> {
     const newAmount = opts.exponential ?
                       Math.pow(this.load.last().total, inc) :
                       this.load.last().total - inc;
@@ -70,7 +70,7 @@ export class Amount<T extends Metric> implements Amount<T> {
       total: this.treatAsInteger ? Math.round(newAmount) : newAmount,
       time: Date.now(),
     };
-    this.load.push(<T>newEntry);
+    return this.push(<T>newEntry);
   }
 
 

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -27,9 +28,22 @@
   "dependencies": {
     "awesome-typescript-loader": "^3.1.2",
     "immutable": "^3.8.1",
+    "jest": "^19.0.2",
+    "ts-jest": "^19.0.1",
     "webpack": "^2.2.1"
   },
   "devDependencies": {
     "typescript": "^2.2.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
   }
 }

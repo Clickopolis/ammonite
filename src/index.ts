@@ -1,1 +1,1 @@
-export { Amount } from './amount';
+export { Amount, Metric, IncrementOptions, DecrementOptions } from './amount';
