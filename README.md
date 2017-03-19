@@ -22,7 +22,7 @@ npm install ammonite --save
 ## Usage
 
 ```Typescript
-import { Amount, Metric, NewEntryOptions } from 'ammonite';
+import { Amount, AmountStore, Metric, NewEntryOptions } from 'ammonite';
 ```
 
 ## API
@@ -107,7 +107,7 @@ amount.sort<string>(prop: 'alphabet');
 
 Increments the last value of the load and then returns a new load with the added value pushed onto it.
 
-See [`NewEntryOptions<T>`](#NewEntryOptions<T>) for more information.
+See [`NewEntryOptions<T>`](#newentryoptionst) for more information.
 
 **Example**
 
@@ -158,5 +158,6 @@ NewEntryOptions is the interface for new additions via `increment` and `decremen
 It's [this](https://www.google.com/search?q=ammonite&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjU8vfRgODSAhUE9WMKHQyXDDwQ_AUICCgB&biw=892&bih=935).
 
 
-
-Ammonite made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+<p align="center">
+<small><code>Ammonite made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></code></small>
+</p>
