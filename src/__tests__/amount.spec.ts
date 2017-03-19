@@ -1,5 +1,5 @@
 import { List } from 'immutable';
-import { Amount, Metric } from '../amount';
+import { Amount, Metric, NewEntryOptions } from '../amount';
 
 interface Chicken extends Metric {
   total: number;

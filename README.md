@@ -14,13 +14,21 @@ Ammonite is a small library made for incremental games.
 
 ## Installation
 
-`npm install ammonite --save`
+```
+npm install ammonite --save
+```
+
+## Usage
+
+```Typescript
+import { Amount, Metric, NewEntryOptions } from 'ammonite';
+```
 
 ## API
 
 ### `Amount`
 
-Amount is a class that Ammonite uses to control metrics. Its constructor takes a `List` of an item that has the same subset of properties as `Metric` (see [Metric](#Metric) for more information).
+Amount is a class that Ammonite uses to control metrics. Its constructor takes a `List` of an item that has the same subset of properties as `Metric` (see [Metric](#Metric) for more information). It uses a list as an easy way to maintain a record of all values&mdash;in a lot of incremental games, this ability is often lost, as it simply mutates a single value over time.
 
 | Property       | Type                   | Optional? | Default |
 |----------------|------------------------|------------|----------|
