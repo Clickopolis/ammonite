@@ -4,6 +4,7 @@
 [![Coveralls](https://img.shields.io/coveralls/Clickopolis/ammonite.svg?style=flat-square)]()
 [![npm](https://img.shields.io/npm/v/ammonite.svg?style=flat-square)]()
 [![license](https://img.shields.io/github/license/Clickopolis/ammonite.svg?style=flat-square)]()
+[![stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)]
 
 Ammonite is a small library made for incremental games.
 
