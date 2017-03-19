@@ -64,29 +64,29 @@ Returns all items in the load.
 Returns an exact copy of `Amount`.
 Note: not of `load`, but of the class itself.
 
-### `first()`
+#### `first()`
 
 Returns the first item in the load.
 
-### `last()`
+#### `last()`
 
 Returns the last item in the load.
 
-### `current()`
+#### `current()`
 
 Return the last item item in the load (alias for `last()`).
 
-### `getSize()`
+#### `getSize()`
 
 Returns the size of the load.
 
-### `push(n: T)`
+#### `push(n: T)`
 
 Pushes a new value to the load and returns the new load.
 
 Note that the type of `n` must satisfy `T`, which is F-bounded to `Metric`.
 
-### `sum(prop: string)`
+#### `sum(prop: string)`
 
 Returns the sum of the given property. Note that the property itself should be of type `number`.
 
@@ -96,12 +96,12 @@ Returns the sum of the given property. Note that the property itself should be o
 amount.sum('total');
 ```
 
-### `includes(v: T)`
+#### `includes(v: T)`
 
 Returns a true if `v` is included in the load.
 Returns false otherwise.
 
-### `sort<C>(prop: string)`
+#### `sort<C>(prop: string)`
 
 Returns a new sorted `List`
 
