@@ -46,9 +46,9 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.push(n);
   }
 
-  sum() {
+  sum(prop: string = 'total'):number {
     return this.load.reduce((red, val, key, iter) => {
-      return red + val.total;
+      return red + val[prop];
     }, 0);
   }
 
@@ -56,7 +56,7 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.includes(v);
   }
 
-  sort<C>(prop: string):List<T> {
+  sort<C>(prop: string = 'total'):List<T> {
     return <List<T>>this.load.sort((a:T, b:T):number => {
       if (<C>a[prop] < <C>b[prop]) { return -1; }
       if (<C>a[prop] > <C>b[prop]) { return 1; }
