@@ -118,7 +118,7 @@ amount.sort<number>(prop: 'time');
 amount.sort<string>(prop: 'alphabet');
 ```
 
-### `increment(inc: number, opts: NewEntryOptions<T>)`
+#### `increment(inc: number, opts: NewEntryOptions<T>)`
 
 Increments the last value of the load and then returns a new load with the added value pushed onto it.
 
@@ -132,7 +132,7 @@ amount.load = amount.increment(43);
 amount.load = amount.increment(1.057, { exponential: true });
 ```
 
-### `decrement(inc: number, opts: NewEntryOptions<T>)`
+#### `decrement(inc: number, opts: NewEntryOptions<T>)`
 
 Same as increment, except it substracts the given value, i.e. `decrement(43)` would _subtract_ 43 from the most recent value.
 
@@ -213,5 +213,5 @@ It's [this](https://www.google.com/search?q=ammonite&source=lnms&tbm=isch&sa=X&v
 
 
 <p align="center">
-<small><code>Ammonite made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></code></small>
+Ammonite made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>. Code licensed under [MIT](https://mit-license.org/).
 </p>
