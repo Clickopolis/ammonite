@@ -60,6 +60,13 @@ describe('Amount class', () => {
     expect(amount.first()).toEqual(newChicken);
   });
 
+  it('#sum', () => {
+    const subject = amount.sum('total');
+    expect(subject).toBe(45);
+    const subject2 = amount.sum();
+    expect(subject).toBe(45);
+  });
+
   it('#includes', () => {
     amount.load = amount.push(answer);
     expect(amount.includes(answer)).toBe(true);
