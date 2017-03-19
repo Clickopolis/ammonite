@@ -22,6 +22,11 @@ describe('Amount class', () => {
     expect(subject.treatAsInteger).toBe(true);
   });
 
+  it('#clone', () => {
+    const clone = amount.clone();
+    expect(clone).toEqual(amount);
+  });
+
   it('#getAll()', () => {
     const subject = amount.getAll();
     expect(subject.size).toBe(0);
@@ -58,6 +63,18 @@ describe('Amount class', () => {
     amount.load = amount.push(newChicken);
     amount.load = amount.sort<number>('total');
     expect(amount.first()).toEqual(newChicken);
+  });
+
+  it('#sum', () => {
+    const subject = amount.sum('total');
+    expect(subject).toBe(45);
+    const subject2 = amount.sum();
+    expect(subject).toBe(45);
+  });
+
+  it('#average', () => {
+    const subject = amount.average();
+    expect(subject).toBe(11.25);
   });
 
   it('#includes', () => {

@@ -22,7 +22,7 @@ npm install ammonite --save
 ## Usage
 
 ```Typescript
-import { Amount, Metric, NewEntryOptions } from 'ammonite';
+import { Amount, AmountStore, Metric, NewEntryOptions } from 'ammonite';
 ```
 
 ## API
@@ -59,6 +59,11 @@ let dogs = new Amount(List<Dogs>(), true);
 
 Returns all items in the load.
 
+#### `clone()`
+
+Returns an exact copy of `Amount`.
+Note: not of `load`, but of the class itself.
+
 ### `first()`
 
 Returns the first item in the load.
@@ -80,6 +85,16 @@ Returns the size of the load.
 Pushes a new value to the load and returns the new load.
 
 Note that the type of `n` must satisfy `T`, which is F-bounded to `Metric`.
+
+### `sum(prop: string)`
+
+Returns the sum of the given property. Note that the property itself should be of type `number`.
+
+**Example**
+
+```Typescript
+amount.sum('total');
+```
 
 ### `includes(v: T)`
 
@@ -107,7 +122,7 @@ amount.sort<string>(prop: 'alphabet');
 
 Increments the last value of the load and then returns a new load with the added value pushed onto it.
 
-See [`NewEntryOptions<T>`](#NewEntryOptions<T>) for more information.
+See [`NewEntryOptions<T>`](#newentryoptionst) for more information.
 
 **Example**
 
@@ -120,6 +135,45 @@ amount.load = amount.increment(1.057, { exponential: true });
 ### `decrement(inc: number, opts: NewEntryOptions<T>)`
 
 Same as increment, except it substracts the given value, i.e. `decrement(43)` would _subtract_ 43 from the most recent value.
+
+### `AmountStore`
+
+`AmountStore<K, V>` is a class for managing all instances of `Amount`.
+
+| Property | Type   | Optional? | Default |
+|----------|--------|------------|------|
+| `store`    | `Map<K, Amount<V>>` | No |   |
+
+Under most cases `K` will be a string, but it can also be a number.
+
+#### Methods
+
+#### `get(key: K)`
+
+Returns the `Amount` which belongs to the key.
+
+#### `getStore()`
+
+Returns the store.
+
+#### `set(key: K, value: Amount<V>)`
+
+Returns a new Map after settings a new value for the given key.
+
+#### `getKeys()`
+
+Returns an Iterator from the keys of `store`.
+
+#### `update(key: K, newValue: Amount<V>)`
+
+Returns a new `Map` with the updated value at the given key.
+
+#### `forEach(sideEffect: (value: Amount<V>, key: K, iter: Iterable<K, Amount<V>>) => any)`
+
+Performs a given side-effect.
+
+Returns the number of times the side-effect was produced.
+
 
 ### `Metric`
 
@@ -158,5 +212,6 @@ NewEntryOptions is the interface for new additions via `increment` and `decremen
 It's [this](https://www.google.com/search?q=ammonite&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjU8vfRgODSAhUE9WMKHQyXDDwQ_AUICCgB&biw=892&bih=935).
 
 
-
-Ammonite made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+<p align="center">
+<small><code>Ammonite made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></code></small>
+</p>
