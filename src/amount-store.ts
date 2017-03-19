@@ -14,6 +14,10 @@ export class AmountStore<K, V extends Metric> implements AmountStore<K, V> {
     return this.store.get(key);
   }
 
+  set(key: K, value: Amount<V>):Map<K, Amount<V>> {
+    return this.store.set(key, value);
+  }
+
   getKeys():Iterator<K> {
     return this.store.keys();
   }
