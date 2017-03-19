@@ -23,7 +23,7 @@ export class Amount<T extends Metric> implements Amount<T> {
   }
 
   clone():Amount<T> {
-    return new Amount(this.load, this.treatAsInteger);
+    return new Amount<T>(this.load, this.treatAsInteger);
   }
 
   getAll():List<T> {
