@@ -58,6 +58,67 @@ let dogs = new Amount(List<Dogs>(), true);
 
 Returns all items in the load.
 
+### `first()`
+
+Returns the first item in the load.
+
+### `last()`
+
+Returns the last item in the load.
+
+### `current()`
+
+Return the last item item in the load (alias for `last()`).
+
+### `getSize()`
+
+Returns the size of the load.
+
+### `push(n: T)`
+
+Pushes a new value to the load and returns the new load.
+
+Note that the type of `n` must satisfy `T`, which is F-bounded to `Metric`.
+
+### `includes(v: T)`
+
+Returns a true if `v` is included in the load.
+Returns false otherwise.
+
+### `sort<C>(prop: string)`
+
+Returns a new sorted `List`
+
+- `C` generic corresponds to the type of the property
+- `prop` is the property accessor for the `Metric` property
+
+**Example**
+
+```Typescript
+amount.sort<number>(prop: 'total');
+
+amount.sort<number>(prop: 'time');
+
+amount.sort<string>(prop: 'alphabet');
+```
+
+### `increment(inc: number, opts: NewEntryOptions<T>)`
+
+Increments the last value of the load and then returns a new load with the added value pushed onto it.
+
+See [`NewEntryOptions<T>`](#NewEntryOptions<T>) for more information.
+
+**Example**
+
+```Typescript
+amount.load = amount.increment(43);
+
+amount.load = amount.increment(1.057, { exponential: true });
+```
+
+### `decrement(inc: number, opts: NewEntryOptions<T>)`
+
+Same as increment, except it substracts the given value, i.e. `decrement(43)` would _subtract_ 43 from the most recent value.
 
 ### `Metric`
 
@@ -67,6 +128,7 @@ Metric is an interface that is F-bounded to `Amount`.
 |----------|--------|------------|------|
 | `total`    | number | No |   |
 | `time`     | number | Yes |    |
+| [prop: string]     | any | Yes | |
 
 All generic types of `Amount` must extend from `Metric`. This is easy to do with `extends`.
 
@@ -77,6 +139,17 @@ interface Click extends Metric {
 }
 ```
 
+### `NewEntryOptions<T>`
+
+NewEntryOptions is the interface for new additions via `increment` and `decrement`.
+
+| Property | Type   | Optional? | Default |
+|----------|--------|------------|------|
+| `exponential`    | number | No |   |
+| `extra`     | any | Yes |    |
+
+- `exponential` determines whether the increment number is treated as an exponential
+- `extra` is for additional metadata that may be required
 
 ## FAQ
 
