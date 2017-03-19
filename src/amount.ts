@@ -46,6 +46,12 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.push(n);
   }
 
+  sum() {
+    return this.load.reduce((red, val, key, iter) => {
+      return red + val.total;
+    }, 0);
+  }
+
   includes(v: T):boolean {
     return this.load.includes(v);
   }
