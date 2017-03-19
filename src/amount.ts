@@ -22,6 +22,10 @@ export class Amount<T extends Metric> implements Amount<T> {
     this.treatAsInteger = treatAsInteger;
   }
 
+  clone():Amount<T> {
+    return new Amount(this.load, this.treatAsInteger);
+  }
+
   getAll():List<T> {
     return this.load;
   }
@@ -50,6 +54,10 @@ export class Amount<T extends Metric> implements Amount<T> {
     return this.load.reduce((red, val, key, iter) => {
       return red + val[prop];
     }, 0);
+  }
+
+  average(prop: string = 'total') {
+    return this.sum(prop) / this.getSize();
   }
 
   includes(v: T):boolean {
