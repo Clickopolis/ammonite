@@ -1,4 +1,4 @@
-import { List, Iterable } from 'immutable';
+import { List, Iterable, fromJS } from 'immutable';
 
 export interface Metric {
   total: number;
@@ -82,6 +82,18 @@ export class Amount<T extends Metric> implements Amount<T> {
       time: Date.now(),
     };
     return this.push(<T>newEntry);
+  }
+
+  toJS():Array<T> {
+    return this.load.toJS();
+  }
+
+  fromJS(jsValue: any):List<T> {
+    return fromJS(jsValue);
+  }
+
+  toJSON():string {
+    return JSON.stringify(this.toJS());
   }
 
 
