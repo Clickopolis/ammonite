@@ -30,9 +30,9 @@
   "dependencies": {
     "awesome-typescript-loader": "^3.1.2",
     "immutable": "^3.8.1",
-    "jest": "^26.0.0",
+    "jest": "^29.0.0",
     "ts-jest": "^25.3.0",
-    "webpack": "^4.0.0"
+    "webpack": "^5.1.1"
   },
   "devDependencies": {
     "coveralls": "^2.12.0",
